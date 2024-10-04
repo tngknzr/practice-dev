@@ -1,27 +1,12 @@
-import createPost from "@/server/actions/create-post";
-import getPosts from "@/server/actions/get-posts";
-import Image from "next/image";
-
+import { Button } from "@/components/ui/button"
 export default async function Home() {
-  const { error, success } = await getPosts()
-  if (error) {
-    throw new Error(error)
-  }
-  if (success) {
+  
     return (
-      <main>
-        {success.map((post) => (
-          <div key={post.id}>
-            <h2>{post.title}</h2>
-          </div>
-        ))}
-        <form action={createPost}>
-          <input type="text" name="title" placeholder="Title"/>
-          <button type="submit">Submit</button>
-        </form>
+      <main className="text-special min-h-50vh bg-blue-900 flex justify-between px-12 py-4">
+        <h1 >Home Page</h1>
+        <h1 >Home Page</h1>
+        <h1 >Home Page</h1>
+        <Button variant={"ghost"}>Click me</Button>
       </main>
     )
   }
-
- 
-}
